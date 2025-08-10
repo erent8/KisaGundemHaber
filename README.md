@@ -26,8 +26,8 @@ Günlük haber başlıklarını kısa özetlerle sunan, reels tarzında kaydır�
 
 1. **Depoyu klonlayın**
 ```bash
-git clone [repo-url]
-cd KısaGündem
+git clone [https://github.com/erent8/KisaGundemHaber/tree/main]
+cd KısaGundemHaber
 ```
 
 2. **Bağımlılıkları yükleyin**
@@ -59,7 +59,6 @@ http://localhost:3000
 - **K** / **↑** - Önceki haber
 - **/** - Arama kutusuna odaklan
 - **Esc** - Aramayı temizle ve odağı kaldır
-- **D** - Dark mode toggle
 - **R** - Haberleri yenile
 
 ### Arama Özellikleri:
@@ -76,6 +75,13 @@ Uygulama aşağıdaki RSS kaynaklarından haberler çeker:
 - CNN Türk
 - Hürriyet
 - Sabah
+
+## 📸 Ekran Görüntüleri 
+<img width="1918" height="902" alt="gundem1" src="https://github.com/user-attachments/assets/205acbab-6d55-4a1b-adea-5c35cef2ddcd" />
+<img width="1918" height="910" alt="2" src="https://github.com/user-attachments/assets/0b23eccc-30dd-448f-9e83-d521733da0d3" />
+<img width="1918" height="902" alt="gundem3" src="https://github.com/user-attachments/assets/5d9aac33-bf42-4f02-8111-1c5b7d416914" />
+<img width="1918" height="905" alt="tttt" src="https://github.com/user-attachments/assets/8609411b-31e4-4713-8c91-b02a695b0f5e" />
+
 
 ## ⚙️ Teknik Detaylar
 
@@ -164,9 +170,8 @@ MIT License - Detaylar için [LICENSE](LICENSE) dosyasını inceleyin.
 
 - **Issues**: GitHub Issues üzerinden
 - **Discussions**: Genel tartışmalar için GitHub Discussions
-- **Email**: Acil durumlar için [email]
+- **Email**: Acil durumlar için [erenterzi@protonmail.com]
 
 ---
 
 **⭐ Beğendiyseniz projeye yıldız vermeyi unutmayın!**
-
