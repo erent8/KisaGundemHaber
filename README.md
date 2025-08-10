@@ -7,7 +7,6 @@ Günlük haber başlıklarını kısa özetlerle sunan, reels tarzında kaydır�
 ### 📱 **Kullanıcı Deneyimi**
 - **Reels Tarzı Deneyim**: Haberleri yukarı/aşağı kaydırarak gezinebilirsiniz
 - **Akıllı Arama**: Başlık, içerik ve kaynak bazlı gerçek zamanlı arama
-- **Dark Mode**: Göz dostu karanlık tema desteği
 - **PWA Desteği**: Mobil cihazlara uygulama olarak yüklenebilir
 - **Offline Çalışma**: Service Worker ile internet bağlantısı olmadan kullanım
 
@@ -170,3 +169,4 @@ MIT License - Detaylar için [LICENSE](LICENSE) dosyasını inceleyin.
 ---
 
 **⭐ Beğendiyseniz projeye yıldız vermeyi unutmayın!**
+
