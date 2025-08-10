@@ -1,0 +1,147 @@
+# Kısa Gündem - Cursor IDE Kuralları
+
+## Proje Genel Bilgileri
+Bu proje, RSS beslemelerinden günlük haber başlıklarını çeken ve reels tarzında sunan bir web uygulamasıdır.
+
+## Teknoloji Stack'i
+- **Backend**: Node.js + Express
+- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
+- **RSS Parser**: rss-parser npm paketi
+- **Cron Jobs**: node-cron
+- **PWA**: Service Worker + Web App Manifest
+
+## Kod Yazım Kuralları
+
+### JavaScript
+- ES6+ syntax kullan (const/let, arrow functions, async/await)
+- Türkçe değişken adları ve yorumlar kabul edilir
+- Class-based yapı tercih edilir
+- Event listener'ları constructor'da tanımla
+- Async/await kullan, Promise.then() yerine
+- Console.log yerine console.error kullan hata durumlarında
+
+### CSS
+- CSS Grid ve Flexbox kullan
+- CSS Variables (custom properties) kullan
+- Mobile-first responsive design
+- Dark mode için [data-theme="dark"] selector'ü kullan
+- Transition'lar için ease fonksiyonları tercih et
+- BEM metodolojisi kullanmaya çalış
+
+### HTML
+- Semantic HTML5 elementleri kullan
+- Accessibility için ARIA etiketleri ekle
+- Meta tagları tam olsun (PWA için)
+- Font Awesome ikonları için fas class'ı kullan
+
+## Dosya Yapısı
+```
+/
+├── server.js (Ana sunucu dosyası)
+├── package.json
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   ├── script.js
+│   ├── sw.js (Service Worker)
+│   └── manifest.json (PWA Manifest)
+└── .cursorrules
+```
+
+## Önemli Fonksiyonlar ve Sınıflar
+
+### Server.js
+- `kategoriBelirle(metin)`: Haber kategorisini belirler
+- `haberleriCek()`: RSS'den haberleri çeker
+- API endpoints: `/api/haberler`, `/api/kategoriler`
+
+### Script.js - KisaGundem Class
+- `constructor()`: Uygulamayı başlatır
+- `haberleriYukle()`: API'den haberleri çeker
+- `aramaYap(metin)`: Arama fonksiyonu
+- `toggleDarkMode()`: Karanlık mod değiştirici
+- `createNewsCard()`: Haber kartı oluşturur
+
+## Hata Yönetimi
+- Try-catch blokları kullan
+- User-friendly hata mesajları göster
+- Console'a detaylı hata logları yaz
+- Network hatalarında fallback sağla
+
+## Performance Kuralları
+- Debounce arama işlemlerinde kullan
+- Event delegation tercih et
+- DOM manipülasyonunu minimize et
+- CSS animasyonları için transform/opacity kullan
+
+## Güvenlik
+- XSS koruması için innerHTML yerine textContent kullan (gerekli yerler hariç)
+- RSS içeriğini sanitize et
+- CORS ayarlarını kontrol et
+
+## PWA Kuralları
+- Service Worker cache stratejisi: Network First for API, Cache First for static
+- Manifest.json güncel tut
+- Offline deneyimi sağla
+
+## Kod Örnekleri
+
+### Yeni özellik ekleme
+```javascript
+// Event listener eklerken
+this.newButton.addEventListener('click', () => this.newFunction());
+
+// Async fonksiyon yazarken
+async newFunction() {
+    try {
+        const response = await fetch('/api/endpoint');
+        if (!response.ok) throw new Error('API hatası');
+        const data = await response.json();
+        // İşlem...
+    } catch (error) {
+        console.error('Hata:', error);
+        // User-friendly mesaj göster
+    }
+}
+```
+
+### CSS Dark Mode
+```css
+.element {
+    background: #fff;
+    color: #333;
+}
+
+[data-theme="dark"] .element {
+    background: #2d2d2d;
+    color: #e0e0e0;
+}
+```
+
+## Test Edilmesi Gerekenler
+- Tüm klavye kısayolları çalışıyor mu?
+- Dark mode tüm elementlerde uygulanıyor mu?
+- Responsive design mobilde düzgün görünüyor mu?
+- PWA kurulumu çalışıyor mu?
+- Offline durumda cache çalışıyor mu?
+- Arama fonksiyonu doğru filtreliyor mu?
+
+## Yaygın Hatalar ve Çözümleri
+- **RSS parse hatası**: Try-catch ile yakala, diğer kaynaklara devam et
+- **Dark mode geçişi**: CSS transition'ları ekle
+- **Mobile responsive**: Viewport meta tag'i kontrol et
+- **Service Worker**: Cache version'ını güncelle
+
+## Geliştirme Ortamı
+- Port: 3001 (3000 yerine çakışma olmaması için)
+- Hot reload: nodemon kullan
+- Browser cache: Ctrl+Shift+R ile temizle
+
+## Commit Mesaj Formatı
+- feat: Yeni özellik
+- fix: Hata düzeltme
+- style: CSS değişiklikleri
+- refactor: Kod iyileştirme
+- docs: Dokümantasyon
+
+Bu kuralları takip ederek tutarlı ve hatasız kod yazılmasını sağla.

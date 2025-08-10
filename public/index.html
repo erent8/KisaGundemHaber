@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kısa Gündem - Günlük Haber Özetleri</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="KısaGündem">
+</head>
+<body>
+    <div class="app">
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="loading-screen">
+            <div class="loading-spinner">
+                <i class="fas fa-newspaper fa-spin"></i>
+            </div>
+            <p>Haberler yükleniyor...</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="app-title">KısaGündem</h1>
+                <div class="header-controls">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Haber ara..." class="search-input">
+                        <button id="clearSearch" class="clear-search" title="Aramayı temizle">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="nav-counter">
+                        <span id="currentIndex">1</span>/<span id="totalNews">0</span>
+                    </div>
+                    <!-- Dark mode butonu kaldırıldı -->
+                    <button id="favoritesToggle" class="favorites-toggle" title="Favoriler">
+                        <i class="fas fa-heart"></i>
+                        <span class="favorites-count" id="favoritesCount">0</span>
+                    </button>
+                    <button id="settingsToggle" class="settings-toggle" title="Ayarlar">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="category-filter" id="categoryFilter">
+                <!-- Kategori butonları dinamik olarak buraya eklenecek -->
+            </div>
+
+            <!-- News Card Container -->
+            <div id="newsContainer" class="news-container">
+                <!-- Haberler dinamik olarak buraya eklenecek -->
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="nav-controls">
+                <div class="nav-arrows">
+                    <div class="arrow-label">Önceki haber</div>
+                    <button class="nav-arrow up" id="prevBtn" title="Önceki haber">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <button class="nav-arrow down" id="nextBtn" title="Sonraki haber">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="arrow-label">Sonraki haber</div>
+                </div>
+            </div>
+
+            <!-- Favorites Panel -->
+            <div class="favorites-panel" id="favoritesPanel">
+                <div class="favorites-modal">
+                    <div class="favorites-header">
+                        <h3>❤️ Favoriler</h3>
+                        <button class="favorites-close" id="favoritesClose">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="favorites-content">
+                        <div class="favorites-empty" id="favoritesEmpty">
+                            <i class="fas fa-heart-broken"></i>
+                            <p>Henüz favori haber eklenmemiş</p>
+                            <small>Beğendiğiniz haberlerin kalp butonuna tıklayarak favorilerinize ekleyebilirsiniz.</small>
+                        </div>
+                        <div class="favorites-list" id="favoritesList">
+                            <!-- Favoriler buraya dinamik olarak eklenecek -->
+                        </div>
+                    </div>
+                    <div class="favorites-actions">
+                        <button class="clear-all-favorites-btn" id="clearAllFavorites">
+                            <i class="fas fa-trash"></i> Tümünü Temizle
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Panel -->
+            <div class="settings-panel" id="settingsPanel">
+                <div class="settings-modal">
+                    <div class="settings-header">
+                        <h3>Ayarlar</h3>
+                        <button class="settings-close" id="settingsClose">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-group">
+                            <label>Font Boyutu</label>
+                            <div class="font-size-options">
+                                <button class="font-size-btn" data-size="small">Küçük</button>
+                                <button class="font-size-btn active" data-size="medium">Orta</button>
+                                <button class="font-size-btn" data-size="large">Büyük</button>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-group">
+                            <label>Otomatik Geçiş Hızı</label>
+                            <div class="speed-options">
+                                <button class="speed-btn" data-speed="5000">Hızlı (5s)</button>
+                                <button class="speed-btn active" data-speed="8000">Normal (8s)</button>
+                                <button class="speed-btn" data-speed="12000">Yavaş (12s)</button>
+                                <button class="speed-btn" data-speed="0">Kapalı</button>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-group">
+                            <label>Görünüm</label>
+                            <div class="view-options">
+                                <button class="view-btn active" data-view="comfortable">Rahat</button>
+                                <button class="view-btn" data-view="compact">Kompakt</button>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-group">
+                            <label>Renk Teması</label>
+                            <div class="theme-options">
+                                <button class="theme-btn active" data-theme="default">Varsayılan</button>
+                                <button class="theme-btn" data-theme="blue">Mavi</button>
+                                <button class="theme-btn" data-theme="green">Yeşil</button>
+                                <button class="theme-btn" data-theme="purple">Mor</button>
+                                <button class="theme-btn" data-theme="orange">Turuncu</button>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-actions">
+                            <button class="save-settings-btn" id="saveSettings">
+                                <i class="fas fa-save"></i> Kaydet
+                            </button>
+                            <button class="reset-settings-btn" id="resetSettings">
+                                <i class="fas fa-undo"></i> Sıfırla
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Refresh Button -->
+            <button class="refresh-btn" id="refreshBtn" title="Haberleri Yenile">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
