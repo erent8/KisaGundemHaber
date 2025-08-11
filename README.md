@@ -9,9 +9,11 @@ Günlük haber başlıklarını kısa özetlerle sunan, reels tarzında kaydır�
 - **Akıllı Arama**: Başlık, içerik ve kaynak bazlı gerçek zamanlı arama
 - **PWA Desteği**: Mobil cihazlara uygulama olarak yüklenebilir
 - **Offline Çalışma**: Service Worker ile internet bağlantısı olmadan kullanım
+- **Favoriler Sistemi**: ❤️ Beğendiğiniz haberleri kalıcı olarak saklayın
+- **Gelişmiş Ayarlar**: ⚙️ Font boyutu, hız, görünüm ve renk teması seçenekleri
 
 ### 🗂️ **İçerik Yönetimi**
-- **9 Kategori**: Spor, Politika, Ekonomi, Teknoloji, Sağlık, Eğitim, Güvenlik, Hava & Doğa, Kültür & Sanat
+- **11 Kategori**: Spor, Politika, Ekonomi, Teknoloji, Sağlık, Eğitim, Güvenlik, Hava & Doğa, Kültür & Sanat, Magazin, Dünya
 - **RSS Beslemesi**: Türkiye'nin önde gelen haber kaynaklarından otomatik güncelleme
 - **Sınırsız Haber**: RSS'den gelen tüm haberler gösterilir
 - **Gerçek Zamanlı**: 15 dakikada bir otomatik güncelleme
@@ -19,15 +21,16 @@ Günlük haber başlıklarını kısa özetlerle sunan, reels tarzında kaydır�
 ### ⌨️ **Gelişmiş Kontroller**
 - **Klavye Kısayolları**: J/K (Vim tarzı), ok tuşları, boşluk tuşu ile navigasyon
 - **Hızlı Arama**: / tuşu ile arama kutusuna odaklanma
-- **Tema Değiştirme**: D tuşu ile hızlı dark mode geçişi
-- **Otomatik Kaydırma**: 8 saniyede bir otomatik haber geçişi (isteğe bağlı)
+- **Gelişmiş Ayarlar**: ⚙️ butonu ile kapsamlı kişiselleştirme
+- **Favoriler Sistemi**: ❤️ butonu ile beğenilen haberleri kaydetme
+- **Otomatik Kaydırma**: Ayarlanabilir hızda otomatik haber geçişi
 
 ## 🚀 Kurulum
 
 1. **Depoyu klonlayın**
 ```bash
-git clone [https://github.com/erent8/KisaGundemHaber/tree/main]
-cd KısaGundemHaber
+git clone [repo-url]
+cd KısaGündem
 ```
 
 2. **Bağımlılıkları yükleyin**
@@ -42,7 +45,7 @@ npm start
 
 4. **Tarayıcıda açın**
 ```
-http://localhost:3000
+http://localhost:3001
 ```
 
 ## 🎮 Kullanım
@@ -58,7 +61,8 @@ http://localhost:3000
 - **J** / **↓** / **Space** - Sonraki haber
 - **K** / **↑** - Önceki haber
 - **/** - Arama kutusuna odaklan
-- **Esc** - Aramayı temizle ve odağı kaldır
+- **S** - Ayarlar panelini aç/kapat
+- **Esc** - Modalleri kapat/aramayı temizle
 - **R** - Haberleri yenile
 
 ### Arama Özellikleri:
@@ -67,21 +71,34 @@ http://localhost:3000
 - **Vurgulama** - Bulunan kelimeler sarı ile işaretlenir
 - **Hızlı temizleme** - X butonu ile aramayı temizleme
 
+### ⚙️ Gelişmiş Ayarlar:
+- **Font Boyutu**: Küçük, Orta, Büyük seçenekleri
+- **Otomatik Geçiş**: Hızlı (5s), Normal (8s), Yavaş (12s) veya Kapalı
+- **Görünüm Modu**: Rahat veya Kompakt görünüm
+- **Renk Temaları**: Varsayılan, Mavi, Yeşil, Mor, Turuncu
+- **Kalıcı Saklama**: Tüm tercihlerin localStorage ile otomatik kaydı
+
+### ❤️ Favoriler Sistemi:
+- **Haber Kaydetme**: Her haberin kalp butonuna tıklayarak favorilere ekleme
+- **Favoriler Paneli**: Kaydedilen haberleri görüntüleme ve yönetme
+- **Hızlı Erişim**: Header'daki kalp butonu ile favori sayısı gösterimi
+- **Toplu İşlemler**: Tüm favorileri temizleme seçeneği
+
 ## 📱 Haber Kaynakları
 
-Uygulama aşağıdaki RSS kaynaklarından haberler çeker:
-- BBC Türkçe
-- NTV
-- CNN Türk
-- Hürriyet
-- Sabah
+Uygulama **25+ RSS kaynağından** haberler çeker:
 
-## 📸 Ekran Görüntüleri 
-<img width="1918" height="902" alt="gundem1" src="https://github.com/user-attachments/assets/205acbab-6d55-4a1b-adea-5c35cef2ddcd" />
-<img width="1918" height="910" alt="2" src="https://github.com/user-attachments/assets/0b23eccc-30dd-448f-9e83-d521733da0d3" />
-<img width="1918" height="902" alt="gundem3" src="https://github.com/user-attachments/assets/5d9aac33-bf42-4f02-8111-1c5b7d416914" />
-<img width="1918" height="905" alt="tttt" src="https://github.com/user-attachments/assets/8609411b-31e4-4713-8c91-b02a695b0f5e" />
+### Genel Haberler
+- BBC Türkçe, NTV, CNN Türk, Hürriyet, Sabah
+- HaberTürk, Milliyet, Sözcü
 
+### Kategori Bazlı Kaynaklar
+- **Ekonomi**: Tüm büyük haber sitelerinin ekonomi RSS'leri
+- **Teknoloji**: Teknoloji odaklı RSS beslemeleri
+- **Spor**: Spor haberlerine özel RSS kaynakları
+- **Sağlık, Eğitim, Magazin**: Özel kategori RSS'leri
+
+*Tüm kaynaklar 15 dakikada bir otomatik güncellenir*
 
 ## ⚙️ Teknik Detaylar
 
@@ -124,6 +141,17 @@ MIT License
 - 📱 **Platform Genişletmesi**: Desktop app, Chrome extension, API geliştirme
 
 Detaylı roadmap için [ROADMAP.md](ROADMAP.md) dosyasını inceleyin.
+
+## 📸 Ekran Görüntüleri 
+<img width="1918" height="902" alt="gundem1" src="https://github.com/user-attachments/assets/205acbab-6d55-4a1b-adea-5c35cef2ddcd" />
+
+<img width="1918" height="910" alt="2" src="https://github.com/user-attachments/assets/0b23eccc-30dd-448f-9e83-d521733da0d3" />
+
+<img width="1918" height="902" alt="gundem3" src="https://github.com/user-attachments/assets/5d9aac33-bf42-4f02-8111-1c5b7d416914" />
+
+<img width="1918" height="905" alt="tttt" src="https://github.com/user-attachments/assets/8609411b-31e4-4713-8c91-b02a695b0f5e" />
+
+
 
 ## 🤝 Katkıda Bulunma
 
@@ -170,8 +198,12 @@ MIT License - Detaylar için [LICENSE](LICENSE) dosyasını inceleyin.
 
 - **Issues**: GitHub Issues üzerinden
 - **Discussions**: Genel tartışmalar için GitHub Discussions
-- **Email**: Acil durumlar için [erenterzi@protonmail.com]
+- **Email**: Acil durumlar için [email]
 
 ---
 
 **⭐ Beğendiyseniz projeye yıldız vermeyi unutmayın!**
+
+
+
+
