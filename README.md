@@ -29,7 +29,7 @@ Günlük haber başlıklarını kısa özetlerle sunan, reels tarzında kaydır�
 
 1. **Depoyu klonlayın**
 ```bash
-git clone [[repo-url](https://github.com/erent8/KisaGundemHaber)]
+git clone [(https://github.com/erent8/KisaGundemHaber)]
 cd KısaGündem
 ```
 
@@ -203,6 +203,7 @@ MIT License - Detaylar için [LICENSE](LICENSE) dosyasını inceleyin.
 ---
 
 **⭐ Beğendiyseniz projeye yıldız vermeyi unutmayın!**
+
 
 
 
