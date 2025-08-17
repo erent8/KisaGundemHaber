@@ -630,19 +630,27 @@ class KisaGundem {
         // Sadece buton durumunu güncelle
         if (key === 'fontSize') {
             document.querySelectorAll('.font-size-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.size === value);
+                const isActive = btn.dataset.size === value;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
             });
         } else if (key === 'autoScrollSpeed') {
             document.querySelectorAll('.speed-btn').forEach(btn => {
-                btn.classList.toggle('active', parseInt(btn.dataset.speed) === value);
+                const isActive = parseInt(btn.dataset.speed) === value;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
             });
         } else if (key === 'viewMode') {
             document.querySelectorAll('.view-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.view === value);
+                const isActive = btn.dataset.view === value;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
             });
         } else if (key === 'colorTheme') {
             document.querySelectorAll('.theme-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.theme === value);
+                const isActive = btn.dataset.theme === value;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
             });
         }
     }
