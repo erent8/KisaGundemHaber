@@ -35,6 +35,7 @@ class KisaGundem {
     }
 
     initializeElements() {
+        this.mainContent = document.getElementById('mainContent');
         this.loadingScreen = document.getElementById('loadingScreen');
         this.newsContainer = document.getElementById('newsContainer');
         this.prevBtn = document.getElementById('prevBtn');
@@ -242,7 +243,10 @@ class KisaGundem {
     async haberleriYukle(kategori = null) {
         try {
             this.yukleniyor = true;
-            if (!kategori) this.loadingScreen.style.display = 'flex';
+            if (!kategori) {
+                this.loadingScreen.style.display = 'flex';
+                this.mainContent.setAttribute("aria-busy", true)
+            }
 
             const url = kategori ? `/api/haberler?kategori=${encodeURIComponent(kategori)}` : '/api/haberler';
             const response = await fetch(url);
@@ -260,6 +264,7 @@ class KisaGundem {
             if (!kategori) {
                 setTimeout(() => {
                     this.loadingScreen.style.display = 'none';
+                    this.mainContent.setAttribute("aria-busy", false)
                     this.yukleniyor = false;
                 }, 1000);
             } else {
