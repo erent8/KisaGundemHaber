@@ -16,35 +16,35 @@
 <body>
     <div class="app">
         <!-- Loading Screen -->
-        <div id="loadingScreen" class="loading-screen">
+        <div id="loadingScreen" class="loading-screen" role="status" aria-live="polite">
             <div class="loading-spinner">
-                <i class="fas fa-newspaper fa-spin"></i>
+                <i class="fas fa-newspaper fa-spin" aria-hidden="true"></i>
             </div>
             <p>Haberler yükleniyor...</p>
         </div>
 
         <!-- Main Content -->
-        <div class="main-content">
+        <div class="main-content" id="mainContent" aria-busy="false">
             <!-- Header -->
             <div class="header">
                 <h1 class="app-title">KısaGündem</h1>
                 <div class="header-controls">
                     <div class="search-container">
                         <input type="text" id="searchInput" placeholder="Haber ara..." class="search-input">
-                        <button id="clearSearch" class="clear-search" title="Aramayı temizle">
-                            <i class="fas fa-times"></i>
+                        <button id="clearSearch" class="clear-search" title="Aramayı temizle" aria-label="Aramayı temizle">
+                            <i class="fas fa-times" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="nav-counter">
                         <span id="currentIndex">1</span>/<span id="totalNews">0</span>
                     </div>
                     <!-- Dark mode butonu kaldırıldı -->
-                    <button id="favoritesToggle" class="favorites-toggle" title="Favoriler">
-                        <i class="fas fa-heart"></i>
+                    <button id="favoritesToggle" class="favorites-toggle" title="Favoriler" aria-label="Favoriler">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
                         <span class="favorites-count" id="favoritesCount">0</span>
                     </button>
-                    <button id="settingsToggle" class="settings-toggle" title="Ayarlar">
-                        <i class="fas fa-cog"></i>
+                    <button id="settingsToggle" class="settings-toggle" title="Ayarlar" aria-label="Ayarlar">
+                        <i class="fas fa-cog" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -63,28 +63,28 @@
             <div class="nav-controls">
                 <div class="nav-arrows">
                     <div class="arrow-label">Önceki haber</div>
-                    <button class="nav-arrow up" id="prevBtn" title="Önceki haber">
-                        <i class="fas fa-chevron-up"></i>
+                    <button class="nav-arrow up" id="prevBtn" title="Önceki haber" aria-label="Önceki haber">
+                        <i class="fas fa-chevron-up" aria-hidden="true"></i>
                     </button>
-                    <button class="nav-arrow down" id="nextBtn" title="Sonraki haber">
-                        <i class="fas fa-chevron-down"></i>
+                    <button class="nav-arrow down" id="nextBtn" title="Sonraki haber" aria-label="Sonraki haber">
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
                     </button>
                     <div class="arrow-label">Sonraki haber</div>
                 </div>
             </div>
 
             <!-- Favorites Panel -->
-            <div class="favorites-panel" id="favoritesPanel">
+            <div class="favorites-panel" id="favoritesPanel" role="dialog" aria-modal="true" aria-labelledby="favoritesTitle">
                 <div class="favorites-modal">
                     <div class="favorites-header">
-                        <h3>❤️ Favoriler</h3>
-                        <button class="favorites-close" id="favoritesClose">
-                            <i class="fas fa-times"></i>
+                        <h3 id="favoritesTitle">❤️ Favoriler</h3>
+                        <button class="favorites-close" id="favoritesClose" aria-label="Favorileri kapat">
+                            <i class="fas fa-times" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="favorites-content">
                         <div class="favorites-empty" id="favoritesEmpty">
-                            <i class="fas fa-heart-broken"></i>
+                            <i class="fas fa-heart-broken" aria-hidden="true"></i>
                             <p>Henüz favori haber eklenmemiş</p>
                             <small>Beğendiğiniz haberlerin kalp butonuna tıklayarak favorilerinize ekleyebilirsiniz.</small>
                         </div>
@@ -93,67 +93,67 @@
                         </div>
                     </div>
                     <div class="favorites-actions">
-                        <button class="clear-all-favorites-btn" id="clearAllFavorites">
-                            <i class="fas fa-trash"></i> Tümünü Temizle
+                        <button class="clear-all-favorites-btn" id="clearAllFavorites" aria-label="Tüm favorileri temizle">
+                            <i class="fas fa-trash" aria-hidden="true"></i> Tümünü Temizle
                         </button>
                     </div>
                 </div>
             </div>
 
             <!-- Settings Panel -->
-            <div class="settings-panel" id="settingsPanel">
+            <div class="settings-panel" id="settingsPanel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
                 <div class="settings-modal">
                     <div class="settings-header">
-                        <h3>Ayarlar</h3>
-                        <button class="settings-close" id="settingsClose">
-                            <i class="fas fa-times"></i>
+                        <h3 id="settingsTitle">Ayarlar</h3>
+                        <button class="settings-close" id="settingsClose" aria-label="Ayarları kapat">
+                            <i class="fas fa-times" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="settings-content">
                         <div class="setting-group">
-                            <label>Font Boyutu</label>
-                            <div class="font-size-options">
-                                <button class="font-size-btn" data-size="small">Küçük</button>
-                                <button class="font-size-btn active" data-size="medium">Orta</button>
-                                <button class="font-size-btn" data-size="large">Büyük</button>
+                            <label id="font-size-label">Font Boyutu</label>
+                            <div class="font-size-options" role="radiogroup" aria-labelledby="font-size-label">
+                                <button class="font-size-btn" data-size="small" role="radio">Küçük</button>
+                                <button class="font-size-btn active" data-size="medium" role="radio" aria-checked="true">Orta</button>
+                                <button class="font-size-btn" data-size="large" role="radio">Büyük</button>
                             </div>
                         </div>
                         
                         <div class="setting-group">
-                            <label>Otomatik Geçiş Hızı</label>
-                            <div class="speed-options">
-                                <button class="speed-btn" data-speed="5000">Hızlı (5s)</button>
-                                <button class="speed-btn active" data-speed="8000">Normal (8s)</button>
-                                <button class="speed-btn" data-speed="12000">Yavaş (12s)</button>
-                                <button class="speed-btn" data-speed="0">Kapalı</button>
+                            <label id="speed-options-label">Otomatik Geçiş Hızı</label>
+                            <div class="speed-options" role="radiogroup" aria-labelledby="speed-options-label">
+                                <button class="speed-btn" data-speed="5000" role="radio">Hızlı (5s)</button>
+                                <button class="speed-btn" data-speed="8000" role="radio">Normal (8s)</button>
+                                <button class="speed-btn" data-speed="12000" role="radio">Yavaş (12s)</button>
+                                <button class="speed-btn active" data-speed="0" role="radio" aria-checked="true">Kapalı</button>
                             </div>
                         </div>
                         
                         <div class="setting-group">
-                            <label>Görünüm</label>
-                            <div class="view-options">
-                                <button class="view-btn active" data-view="comfortable">Rahat</button>
-                                <button class="view-btn" data-view="compact">Kompakt</button>
+                            <label id="view-options-label">Görünüm</label>
+                            <div class="view-options" role="radiogroup" aria-labelledby="view-options-label">
+                                <button class="view-btn active" data-view="comfortable" role="radio" aria-checked="true">Rahat</button>
+                                <button class="view-btn" data-view="compact" role="radio">Kompakt</button>
                             </div>
                         </div>
                         
                         <div class="setting-group">
-                            <label>Renk Teması</label>
-                            <div class="theme-options">
-                                <button class="theme-btn active" data-theme="default">Varsayılan</button>
-                                <button class="theme-btn" data-theme="blue">Mavi</button>
-                                <button class="theme-btn" data-theme="green">Yeşil</button>
-                                <button class="theme-btn" data-theme="purple">Mor</button>
-                                <button class="theme-btn" data-theme="orange">Turuncu</button>
+                            <label id="theme-options-label">Renk Teması</label>
+                            <div class="theme-options" role="radiogroup" aria-labelledby="theme-options-label">
+                                <button class="theme-btn active" data-theme="default" role="radio" aria-checked="true">Varsayılan</button>
+                                <button class="theme-btn" data-theme="blue" role="radio">Mavi</button>
+                                <button class="theme-btn" data-theme="green" role="radio">Yeşil</button>
+                                <button class="theme-btn" data-theme="purple" role="radio">Mor</button>
+                                <button class="theme-btn" data-theme="orange" role="radio">Turuncu</button>
                             </div>
                         </div>
                         
                         <div class="settings-actions">
                             <button class="save-settings-btn" id="saveSettings">
-                                <i class="fas fa-save"></i> Kaydet
+                                <i class="fas fa-save" aria-hidden="true"></i> Kaydet
                             </button>
                             <button class="reset-settings-btn" id="resetSettings">
-                                <i class="fas fa-undo"></i> Sıfırla
+                                <i class="fas fa-undo" aria-hidden="true"></i> Sıfırla
                             </button>
                         </div>
                     </div>
@@ -161,8 +161,8 @@
             </div>
 
             <!-- Refresh Button -->
-            <button class="refresh-btn" id="refreshBtn" title="Haberleri Yenile">
-                <i class="fas fa-sync-alt"></i>
+            <button class="refresh-btn" id="refreshBtn" title="Haberleri Yenile" aria-label="Haberleri yenile">
+                <i class="fas fa-sync-alt" aria-hidden="true"></i>
             </button>
         </div>
     </div>

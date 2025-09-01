@@ -35,6 +35,7 @@ class KisaGundem {
     }
 
     initializeElements() {
+        this.mainContent = document.getElementById('mainContent');
         this.loadingScreen = document.getElementById('loadingScreen');
         this.newsContainer = document.getElementById('newsContainer');
         this.prevBtn = document.getElementById('prevBtn');
@@ -242,7 +243,10 @@ class KisaGundem {
     async haberleriYukle(kategori = null) {
         try {
             this.yukleniyor = true;
-            if (!kategori) this.loadingScreen.style.display = 'flex';
+            if (!kategori) {
+                this.loadingScreen.style.display = 'flex';
+                this.mainContent.setAttribute("aria-busy", true)
+            }
 
             const url = kategori ? `/api/haberler?kategori=${encodeURIComponent(kategori)}` : '/api/haberler';
             const response = await fetch(url);
@@ -260,6 +264,7 @@ class KisaGundem {
             if (!kategori) {
                 setTimeout(() => {
                     this.loadingScreen.style.display = 'none';
+                    this.mainContent.setAttribute("aria-busy", false)
                     this.yukleniyor = false;
                 }, 1000);
             } else {
@@ -630,19 +635,27 @@ class KisaGundem {
         // Sadece buton durumunu güncelle
         if (key === 'fontSize') {
             document.querySelectorAll('.font-size-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.size === value);
+                const isActive = btn.dataset.size === value;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
             });
         } else if (key === 'autoScrollSpeed') {
             document.querySelectorAll('.speed-btn').forEach(btn => {
-                btn.classList.toggle('active', parseInt(btn.dataset.speed) === value);
+                const isActive = parseInt(btn.dataset.speed) === value;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
             });
         } else if (key === 'viewMode') {
             document.querySelectorAll('.view-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.view === value);
+                const isActive = btn.dataset.view === value;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
             });
         } else if (key === 'colorTheme') {
             document.querySelectorAll('.theme-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.theme === value);
+                const isActive = btn.dataset.theme === value;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
             });
         }
     }
